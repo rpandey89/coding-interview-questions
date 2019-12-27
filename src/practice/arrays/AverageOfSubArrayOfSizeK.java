@@ -21,8 +21,9 @@ public class AverageOfSubArrayOfSizeK {
      * Time Complexity O(nk) Space Complexity O(i-k+1)
      * no. of contiguous arrays = length - K + 1
      * 9 - 5 + 1 = 5
+     *
      * @param input array of elements
-     * @param k number of elements in the sub array
+     * @param k     number of elements in the sub array
      * @return array of averages of contiguous sub-arrays of size k
      */
     private static double[] findSubArrayAveragesBrute(int[] input, int k) {
@@ -45,8 +46,9 @@ public class AverageOfSubArrayOfSizeK {
      * Time Complexity O(n) Space Complexity O(n - k + 1)
      * no. of contiguous arrays = length - K + 1
      * 9 - 5 + 1 = 5
+     *
      * @param input array of elements
-     * @param k number of elements in the sub array
+     * @param k     number of elements in the sub array
      * @return array of averages of contiguous sub-arrays of size k
      */
     private static double[] findSubArrayAverages(int[] input, int k) {

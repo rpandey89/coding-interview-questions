@@ -19,8 +19,9 @@ public class MaxSumSubArrayOfSizeK {
      * Time Complexity O(n) Space Complexity O(1)
      * no. of contiguous arrays = length - K + 1
      * 9 - 5 + 1 = 5
+     *
      * @param input array of elements
-     * @param k number of elements in the sub array
+     * @param k     number of elements in the sub array
      * @return max sum of contiguous set elements sub-array
      */
     private static int findMaxSumSubArrayOfSizeK(int[] input, int k) {
