@@ -48,6 +48,7 @@ public class MinSizeSubArraySum {
 
     /**
      * Time Complexity O(n) Space Complexity O(1)
+     * Each element will be visited atmost twice so O(2n) ~= O(n)
      *
      * @param input array of elements
      * @param S     target sum
