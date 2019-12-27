@@ -17,7 +17,14 @@ public class AverageOfSubArrayOfSizeK {
         Arrays.stream(result).forEach(System.out::println);
     }
 
-    // Time Complexity O(nk) Space Complexity O(i-k+1)
+    /**
+     * Time Complexity O(nk) Space Complexity O(i-k+1)
+     * no. of contiguous arrays = length - K + 1
+     * 9 - 5 + 1 = 5
+     * @param input array of elements
+     * @param k number of elements in the sub array
+     * @return array of averages of contiguous sub-arrays of size k
+     */
     private static double[] findSubArrayAveragesBrute(int[] input, int k) {
         if (input == null || input.length < 1) {
             return new double[0];
@@ -34,7 +41,14 @@ public class AverageOfSubArrayOfSizeK {
         return result;
     }
 
-    // Time Complexity O(n) Space Complexity O(n - k + 1)
+    /**
+     * Time Complexity O(n) Space Complexity O(n - k + 1)
+     * no. of contiguous arrays = length - K + 1
+     * 9 - 5 + 1 = 5
+     * @param input array of elements
+     * @param k number of elements in the sub array
+     * @return array of averages of contiguous sub-arrays of size k
+     */
     private static double[] findSubArrayAverages(int[] input, int k) {
         if (input == null || input.length < 1) {
             return new double[0];
