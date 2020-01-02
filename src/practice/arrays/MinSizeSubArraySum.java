@@ -54,7 +54,7 @@ public class MinSizeSubArraySum {
      * @param S     target sum
      * @return minimum number of contiguous elements sub-array that sum up equal or greater than S
      */
-    public static int findMinSubArraySize(int[] input, int S) {
+    private static int findMinSubArraySize(int[] input, int S) {
         if (input == null || input.length < 1) {
             return -1;
         }
