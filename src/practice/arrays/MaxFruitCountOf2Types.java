@@ -16,6 +16,13 @@ public class MaxFruitCountOf2Types {
                 findLength(new char[]{'A', 'B', 'C', 'B', 'B', 'C'}) + " (Expected) 5");
     }
 
+    /**
+     * Time Complexity O(n) Space Complexity O(1)
+     * Each element will be visited atmost twice so O(2n) ~= O(n)
+     *
+     * @param arr Array containing characters representing trees
+     * @return maximum number of fruits in two baskets from two trees
+     */
     public static int findLength(char[] arr) {
         if (arr == null || arr.length < 1) {
             return -1;
