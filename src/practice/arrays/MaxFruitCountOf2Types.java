@@ -6,38 +6,30 @@ import java.util.Map;
 /**
  * @author rpandey
  * @implNote Sliding Window Algorithm Problem
- * @since 1/1/20
+ * @since 1/5/20
  */
-public class LongestSubstringKDistinct {
-
+public class MaxFruitCountOf2Types {
     public static void main(String[] args) {
-        System.out.println("Length of the longest substring: (Actual) " + findLength("araaci", 2) + " (Expected) 4");
-        System.out.println("Length of the longest substring: (Actual) " + findLength("araaci", 1) + " (Expected) 2");
-        System.out.println("Length of the longest substring: (Actual) " + findLength("cbbebi", 3) + " (Expected) 5");
+        System.out.println("Maximum number of fruits: (Actual) " +
+                findLength(new char[]{'A', 'B', 'C', 'A', 'C'}) + " (Expected) 3");
+        System.out.println("Maximum number of fruits: (Actual) " +
+                findLength(new char[]{'A', 'B', 'C', 'B', 'B', 'C'}) + " (Expected) 5");
     }
 
-    /**
-     * Time Complexity O(n) Space Complexity O(K)
-     * Each element will be visited atmost twice so O(2n) ~= O(n)
-     *
-     * @param str input String
-     * @param k   maximum number of distinct characters
-     * @return maximum length of substring with k distinct characters
-     */
-    private static int findLength(String str, int k) {
-        if (str == null || str.length() < 1 || k < 1) {
+    public static int findLength(char[] arr) {
+        if (arr == null || arr.length < 1) {
             return -1;
         }
 
         int start = 0, maxLength = Integer.MIN_VALUE;
         // character - frequency map
         Map<Character, Long> charSeenCount = new HashMap<>();
-        for (int i = 0; i < str.length(); i++) {
-            Character currentChar = str.charAt(i);
+        for (int i = 0; i < arr.length; i++) {
+            Character currentChar = arr[i];
             charSeenCount.put(currentChar, charSeenCount.getOrDefault(currentChar, 0L) + 1);
             // reduce the count of characters and subsequently size of the map till it is not <= k characters
-            while (charSeenCount.size() > k) {
-                Character startChar = str.charAt(start);
+            while (charSeenCount.size() > 2) {
+                Character startChar = arr[start];
                 charSeenCount.put(startChar, charSeenCount.get(startChar) - 1);
                 if (charSeenCount.get(startChar) == 0) {
                     charSeenCount.remove(startChar);
