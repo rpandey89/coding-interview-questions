@@ -1,6 +1,8 @@
 package practice.strings;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -8,26 +10,17 @@ import java.util.Map;
  * @implNote Sliding Window Algorithm Problem
  * @since 1/14/20
  */
-public class StringPermutation {
+public class StringAnagrams {
 
     public static void main(String[] args) {
-        System.out.println("Permutation exist: " + StringPermutation.findPermutation("oidbcaf", "abc") + " (Expected): true");
-        System.out.println("Permutation exist: " + StringPermutation.findPermutation("odicf", "dc") + " (Expected): false");
-        System.out.println("Permutation exist: " + StringPermutation.findPermutation("bcdxabcdy", "bcdyabcdx") + " (Expected): true");
-        System.out.println("Permutation exist: " + StringPermutation.findPermutation("abbcabc", "abc") + " (Expected): true");
+        System.out.println(StringAnagrams.findStringAnagrams("ppqp", "pq")+ " (Expected): [1, 2]");
+        System.out.println(StringAnagrams.findStringAnagrams("abbcabc", "abc") + " (Expected): [2, 3, 4]");
     }
 
-    /**
-     * Time Complexity O(N + M) Space Complexity O(M)
-     * M is number of characters in the pattern
-     *
-     * @param str     input string
-     * @param pattern pattern to be tested for permutation
-     * @return true if input string contains a permutation of pattern
-     */
-    private static boolean findPermutation(String str, String pattern) {
+    public static List<Integer> findStringAnagrams(String str, String pattern) {
+        List<Integer> resultIndices = new ArrayList<>();
         if (str == null || str.isEmpty() || pattern == null || pattern.isEmpty()) {
-            return false;
+            return resultIndices;
         }
 
         // put all the characters in the map
@@ -52,6 +45,7 @@ public class StringPermutation {
                     matchedChars++;
                 }
             }
+
             // shrink the window if the number of characters are more than the characters in the pattern
             if (i - start + 1 > pattern.length()) {
                 char startChar = str.charAt(start);
@@ -66,9 +60,9 @@ public class StringPermutation {
                 start++;
             }
             if (matchedChars == charSeenCount.size()) {
-                return true;
+                resultIndices.add(start);
             }
         }
-        return false;
+        return resultIndices;
     }
 }
