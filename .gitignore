@@ -7,3 +7,14 @@
 out/
 
 coding-interview-questions.iml
+
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build
+/bin/
+
+prep-schedule.txt
+
+.DS_Store
